@@ -1,0 +1,14 @@
+name: "cloud-cost-optimizer"
+version: "1.0.0"
+description: "A deep modeling environment for AIOps. The agent must optimize cloud infrastructure costs across various instances without causing outages via CPU saturation or terminating critical services."
+entrypoint: "env:CloudOptimizerEnv"
+metadata:
+  domain: "cloud_infrastructure"
+  difficulty: "variable"
+observation_space: "Observation"
+action_space: "Action"
+reward_space: "Reward"
+tasks:
+  - "easy"
+  - "medium"
+  - "hard"
