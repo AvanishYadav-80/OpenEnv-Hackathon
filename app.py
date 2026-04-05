@@ -10,7 +10,7 @@ class ResetRequest(BaseModel):
     task_level: str = "medium"
 
 @app.post("/reset")
-def reset_env(req: ResetRequest):
+def reset_env(req: ResetRequest = ResetRequest()):
     obs = env_instance.reset(req.task_level)
     return {"observation": obs.model_dump()}
 
