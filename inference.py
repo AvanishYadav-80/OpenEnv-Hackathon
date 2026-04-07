@@ -16,7 +16,7 @@ client = OpenAI(
 BENCHMARK = "cloud-cost-optimizer"
 
 def run_inference(task_level: str):
-    print(f"[START] task={task_level} env={BENCHMARK} model={model_name}")
+    print(f"[START] task={task_level} env={BENCHMARK} model={MODEL_NAME}")
     
     env = CloudOptimizerEnv()
     obs = env.reset(task_level)
@@ -50,7 +50,7 @@ Output your action in JSON exactly matching this schema:
         error_str = "null"
         try:
             response = client.chat.completions.create(
-                model=model_name,
+                model=MODEL_NAME,
                 messages=[
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_prompt}
