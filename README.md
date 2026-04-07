@@ -1,3 +1,13 @@
+---
+title: Cloud Cost Optimizer
+emoji: ☁️
+colorFrom: blue
+colorTo: green
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # Cloud Cost Optimizer (OpenEnv)
 
 This is a real-world, deep-modeling Reinforcement Learning environment built using the [OpenEnv](https://github.com/meta-pytorch/OpenEnv) framework. 
