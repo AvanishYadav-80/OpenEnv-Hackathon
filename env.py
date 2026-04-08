@@ -165,9 +165,10 @@ class CloudOptimizerEnv:
         if done:
             savings = self._state.initial_total_cost - self._state.current_total_cost
             if self._state.crashes > 0:
-                final_score = 0.0 # Any crash means total failure
+                final_score = 0.01 # Any crash means total failure, strictly > 0
             else:
-                final_score = max(0.0, savings / self._optimal_savings) if self._optimal_savings else 1.0
+                raw_score = savings / self._optimal_savings if self._optimal_savings else 0.99
+                final_score = max(0.01, min(0.99, raw_score))
             info["final_score"] = final_score
 
         return self._obs(), Reward(score=step_reward), done, info

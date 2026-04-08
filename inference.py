@@ -70,7 +70,7 @@ Output your action in JSON exactly matching this schema:
         except Exception as e:
             error_str = f"\"{str(e)}\""
             reward = type('Reward', (), {'score': 0.0})()
-            obs, reward_obj, done, info = env.reset(task_level), type('Reward', (), {'score': 0.0})(), True, {"final_score": 0.0}
+            obs, reward_obj, done, info = env.reset(task_level), type('Reward', (), {'score': 0.0})(), True, {"final_score": 0.01}
 
         rewards_history.append(reward.score)
         done_val = "true" if done else "false"
@@ -80,8 +80,8 @@ Output your action in JSON exactly matching this schema:
         
         step_num += 1
     
-    score = info.get('final_score', 0.0)
-    success_val = "true" if score > 0.0 else "false"
+    score = info.get('final_score', 0.01)
+    success_val = "true" if score > 0.01 else "false"
     rewards_str = ",".join([f"{r:.2f}" for r in rewards_history])
     
     # [END] success=<true|false> steps=<n> score=<score> rewards=<r1,r2,...,rn>
